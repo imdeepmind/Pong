@@ -1,4 +1,5 @@
 import pygame
+import pandas as pd
 
 from player import Player
 from ball import Ball
@@ -25,6 +26,8 @@ score = Score()
 
 gameStatus = "SCORE: "
 gameScore = 0
+
+dataset = []
 
 # Game loop
 running = True
@@ -58,9 +61,21 @@ while running:
     
       if event.key == pygame.K_RIGHT:
         player.update("RIGHT")
+      
+      # Getting the movement data for generating the dataset
+      bx, by = ball.getPosition()
+      px, py, pw, ph = player.getPosition()
+      playerMovement = player.getMovement()
+
+      dataset.append([bx, by, px, py, pw, ph, playerMovement, 1 if running else 0])
   
   # Setting FPS for the game
   clock.tick(FPS)
 
   # Updating the screen
   pygame.display.update()
+
+df = pd.DataFrame(dataset)
+df.columns = ["BallX", "BallY", "PlayerX", "PlayerY", "PlayerW", "PlayerH", "PlayerMovement", "Running"]
+
+df.to_csv('dataset.csv', index=False)

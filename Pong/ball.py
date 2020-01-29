@@ -40,3 +40,6 @@ class Ball:
             return True
         else:
             return False
+    
+    def getPosition(self):
+        return (self.x, self.y)
