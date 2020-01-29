@@ -11,7 +11,12 @@ class Player:
         self.y = SCREEN_HEIGHT - (self.height * 2)
         
         self.vx = 5
-        self.vy = 5
     
     def draw(self, screen):
         pygame.draw.rect(screen, BLACK, (self.x, self.y, self.width, self.height))
+    
+    def update(self, direction):
+        if direction == "LEFT":
+            self.x -= self.vx
+        elif direction == "RIGHT":
+            self.x += self.vx

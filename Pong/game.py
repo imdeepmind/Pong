@@ -17,15 +17,24 @@ player = Player()
 # Game loop
 running = True
 while running:
+  # Filling the screen with white color
+  screen.fill(WHITE)  
+
+  # Drawing the player on the screen
+  player.draw(screen) 
+
   # Checking for events
   for event in pygame.event.get():
     if event.type == pygame.QUIT:
       running = False
 
-  # Filling the screen with white color
-  screen.fill(WHITE)  
-
-  player.draw(screen)    
-
+    # Based on the keystrokes, changes the position of the player
+    if event.type == pygame.KEYDOWN:
+      if event.key == pygame.K_LEFT:
+        player.update("LEFT")
+    
+      if event.key == pygame.K_RIGHT:
+        player.update("RIGHT")
+   
   # Updating the screen
   pygame.display.update()
