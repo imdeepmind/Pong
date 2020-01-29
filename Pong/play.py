@@ -50,6 +50,7 @@ while running:
     gameScore = ball.update(playerPosition, gameScore)
 
     # Moving the player based on movement
+    
     if move:
         print('Move')
         if movement == 0:
