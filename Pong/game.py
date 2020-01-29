@@ -29,8 +29,13 @@ while running:
   screen.fill(WHITE)  
 
   # Drawing the player and ball on the screen
-  player.draw(screen) 
   ball.draw(screen)
+  player.draw(screen) 
+
+  # Checking for GAME OVER
+  if ball.isGameOver():
+    print('GAME OVER')
+    running = False
 
   # Updating the position of the ball
   ball.update()

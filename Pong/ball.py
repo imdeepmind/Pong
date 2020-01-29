@@ -25,3 +25,9 @@ class Ball:
 
         self.x += self.xv
         self.y += self.yv
+    
+    def isGameOver(self):
+        if self.y > SCREEN_HEIGHT - 10:
+            return True
+        else:
+            return False
