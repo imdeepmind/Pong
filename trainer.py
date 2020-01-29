@@ -1,4 +1,4 @@
-from Pong import game
+from Pong import generator
 
 # Generating the dataset
-game.generator()
+generator.generate()
