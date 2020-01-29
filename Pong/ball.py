@@ -16,18 +16,24 @@ class Ball:
     def draw(self, screen):
         pygame.draw.circle(screen, RED, (self.x, self.y), self.radius)
     
-    def update(self):
+    def update(self, playerPosition):
+        px, py, pw, ph = playerPosition
+
         if self.x >= SCREEN_WIDTH or self.x <= 0:
             self.xv *= -1
         
-        if self.y >= SCREEN_HEIGHT or self.y <= 0:
-          self.yv *= -1  
+        if self.y <= 0:
+            self.yv *= -1
+        
+        if self.y >= py:
+            if self.x >= px and self.x <= px+pw:
+                self.yv *= -1
 
         self.x += self.xv
         self.y += self.yv
     
     def isGameOver(self):
-        if self.y > SCREEN_HEIGHT - 10:
+        if self.y > SCREEN_HEIGHT:
             return True
         else:
             return False

@@ -38,7 +38,8 @@ while running:
     running = False
 
   # Updating the position of the ball
-  ball.update()
+  playerPosition = player.getPosition()
+  ball.update(playerPosition)
 
   # Checking for events
   for event in pygame.event.get():

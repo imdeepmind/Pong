@@ -22,3 +22,6 @@ class Player:
         elif direction == "RIGHT":
             if self.x <= SCREEN_WIDTH - (self.width + 10):
                 self.x += self.vx
+    
+    def getPosition(self):
+        return (self.x, self.y, self.width, self.height)
