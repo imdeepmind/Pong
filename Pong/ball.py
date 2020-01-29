@@ -1,7 +1,7 @@
 import pygame
 from random import randint
 
-from constants import *
+from .constants import *
 
 class Ball:
     def __init__(self):

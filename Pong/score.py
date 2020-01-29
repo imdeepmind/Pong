@@ -1,6 +1,6 @@
 import pygame
 
-from constants import *
+from .constants import *
 
 class Score:
     def __init__(self):
