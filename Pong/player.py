@@ -17,6 +17,8 @@ class Player:
     
     def update(self, direction):
         if direction == "LEFT":
-            self.x -= self.vx
+            if self.x >= 10:
+                self.x -= self.vx
         elif direction == "RIGHT":
-            self.x += self.vx
+            if self.x <= SCREEN_WIDTH - (self.width + 10):
+                self.x += self.vx
