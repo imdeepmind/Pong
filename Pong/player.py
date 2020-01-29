@@ -10,7 +10,7 @@ class Player:
         self.x = (SCREEN_WIDTH // 2) - (self.width // 2)
         self.y = SCREEN_HEIGHT - (self.height * 2)
         
-        self.vx = 5
+        self.vx = 10
     
     def draw(self, screen):
         pygame.draw.rect(screen, BLACK, (self.x, self.y, self.width, self.height))

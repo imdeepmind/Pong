@@ -12,11 +12,16 @@ screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 # Window title
 pygame.display.set_caption("Pong Game")
 
+# Setting a clock
+clock = pygame.time.Clock()
+
+# Initializing the player
 player = Player()
 
 # Game loop
 running = True
 while running:
+  
   # Filling the screen with white color
   screen.fill(WHITE)  
 
@@ -35,6 +40,9 @@ while running:
     
       if event.key == pygame.K_RIGHT:
         player.update("RIGHT")
-   
+  
+  # Setting FPS for the game
+  clock.tick(FPS)
+
   # Updating the screen
   pygame.display.update()
