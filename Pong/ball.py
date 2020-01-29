@@ -1,11 +1,12 @@
 import pygame
+from random import randint
 
 from constants import *
 
 class Ball:
     def __init__(self):
-        self.x = SCREEN_WIDTH // 2
-        self.y = SCREEN_HEIGHT // 2
+        self.x = randint(0, SCREEN_WIDTH)
+        self.y = SCREEN_HEIGHT - (SCREEN_HEIGHT // 3)
         
         self.radius = 5
 
