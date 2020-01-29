@@ -2,6 +2,7 @@ import pygame
 
 from player import Player
 from ball import Ball
+from score import Score
 
 from constants import *
 
@@ -20,17 +21,21 @@ clock = pygame.time.Clock()
 # Initializing the player and ball
 player = Player()
 ball = Ball()
+score = Score()
+
+gameStatus = "SCORE: "
+gameScore = 0
 
 # Game loop
 running = True
 while running:
-  
   # Filling the screen with white color
   screen.fill(WHITE)  
 
   # Drawing the player and ball on the screen
   ball.draw(screen)
   player.draw(screen) 
+  score.write(screen, gameStatus + str(gameScore))
 
   # Checking for GAME OVER
   if ball.isGameOver():
@@ -39,7 +44,7 @@ while running:
 
   # Updating the position of the ball
   playerPosition = player.getPosition()
-  ball.update(playerPosition)
+  gameScore = ball.update(playerPosition, gameScore)
 
   # Checking for events
   for event in pygame.event.get():
