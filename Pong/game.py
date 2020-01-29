@@ -1,17 +1,26 @@
 import pygame
-from pygame.locals import *
+
 from constants import *
 
+# Initialize pygame
 pygame.init()
+
+# Create a screen
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-pygame.display.set_caption("PONG")
 
-clock = pygame.time.Clock()
+# Window title
+pygame.display.set_caption("Pong Game")
 
-done = False
+# Game loop
+running = True
+while running:
+  # Checking for events
+  for event in pygame.event.get():
+    if event.type == pygame.QUIT:
+      running = False
 
-while not done:
-    clock.tick(FPS)
-    screen.fill(WHITE)
+  # Filling the screen with white color
+  screen.fill(WHITE)      
 
-pygame.quit()
+  # Updating the screen
+  pygame.display.update()
