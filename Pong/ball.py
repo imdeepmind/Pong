@@ -6,7 +6,7 @@ from constants import *
 class Ball:
     def __init__(self):
         self.x = randint(0, SCREEN_WIDTH)
-        self.y = SCREEN_HEIGHT - (SCREEN_HEIGHT // 3)
+        self.y = 10
         
         self.radius = 5
 
