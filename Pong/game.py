@@ -1,5 +1,6 @@
 import pygame
 
+from player import Player
 from constants import *
 
 # Initialize pygame
@@ -11,6 +12,8 @@ screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 # Window title
 pygame.display.set_caption("Pong Game")
 
+player = Player()
+
 # Game loop
 running = True
 while running:
@@ -20,7 +23,9 @@ while running:
       running = False
 
   # Filling the screen with white color
-  screen.fill(WHITE)      
+  screen.fill(WHITE)  
+
+  player.draw(screen)    
 
   # Updating the screen
   pygame.display.update()
